@@ -5,27 +5,20 @@ import (
 	"assignment-one/method"
 	"assignment-one/model"
 	"fmt"
-	"strconv"
 )
 
 func main() {
 
 	// Console inout
-	fmt.Print("Enter text: ")
-	var idx string
-	fmt.Scanln(&idx)
-
-	idxInt, err := strconv.Atoi(idx)
-	if err != nil {
-		fmt.Println("Index Should Be Number")
-		return
-	}
+	fmt.Print("Search by Name: ")
+	var name string
+	fmt.Scanln(&name)
 
 	// Geerate Data
 	data := function.GenerateData
 
 	// Search Data and Print
-	searchedData := method.SearchData(data(), idxInt)
+	idx, searchedData := method.SearchData(data(), name)
 
 	if searchedData == nil {
 		fmt.Println("Data Not Found")
