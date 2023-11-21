@@ -5,8 +5,12 @@ import (
 	"strings"
 )
 
-func SearchData(data []model.Biodata, nama string) (idx int, biodata interface{}) {
-	for i, v := range data {
+type PopulatedData struct {
+	Datas []model.Biodata
+}
+
+func (p PopulatedData) SearchData(nama string) (idx int, biodata interface{}) {
+	for i, v := range p.Datas {
 		if strings.ToLower(nama) == strings.ToLower(v.Nama) {
 			return i, v
 		}

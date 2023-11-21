@@ -20,11 +20,14 @@ func main() {
 		name = scanner.Text()
 	}
 
-	// Geerate Data
-	data := function.GenerateData
+	// Generate Data
+	data := function.GenerateData()
+
+	// Initiating populated data struct of search function
+	populatedData := method.PopulatedData{Datas: data}
 
 	// Search Data and Print
-	idx, searchedData := method.SearchData(data(), name)
+	idx, searchedData := populatedData.SearchData(name)
 
 	if searchedData == nil {
 		fmt.Println("Data Not Found")
